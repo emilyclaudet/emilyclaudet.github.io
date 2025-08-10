@@ -1,54 +1,104 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Personal Portfolio Website
 
-## 🚀 Quick start
+A clean, modern personal portfolio website with a writer-focused aesthetic. Built with semantic HTML, responsive CSS, and vanilla JavaScript.
 
-1.  **Create a Gatsby site.**
+## 🎨 Design Features
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+- **Writer-centric design** with beige and burgundy color scheme
+- **Serif typography** using Source Serif 4 and Crimson Text fonts
+- **Fully responsive** layout that works on all devices
+- **Accessibility optimizations** including reduced motion support
+- **SEO optimized** with comprehensive meta tags and structured data
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+## 🚀 Live Demo
 
-2.  **Start developing.**
+Visit the live site: [https://yourusername.github.io/](https://yourusername.github.io/)
 
-    Navigate into your new site’s directory and start it up.
+## 📱 Sections
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+- **Hero Section**: Introduction with profile image placeholder
+- **About Me**: Personal background and story
+- **Projects**: Featured work with descriptions
+- **Contact**: LinkedIn and GitHub links
 
-3.  **Open the code and start customizing!**
+## 🛠️ Technologies Used
 
-    Your site is now running at http://localhost:8000!
+- **HTML5**: Semantic markup with accessibility in mind
+- **CSS3**: Modern styling with CSS Grid, Flexbox, and custom properties
+- **JavaScript**: Interactive navigation and smooth scrolling
+- **Google Fonts**: Professional serif typography
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+## 📋 Quick Setup
 
-4.  **Learn more**
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/yourusername.github.io.git
+   cd yourusername.github.io
+   ```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+2. **Customize the content**
+   - Update personal information in `index.html`
+   - Replace placeholder links with your actual profiles
+   - Add your profile image to `/images/` folder
+   - Modify projects section with your own work
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+3. **Deploy to GitHub Pages**
+   - Push to your GitHub repository
+   - Enable GitHub Pages in repository settings
+   - Your site will be available at `https://yourusername.github.io/`
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## ✏️ Customization Guide
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Personal Information
+Update the following in `index.html`:
+- Replace "Your Name" with your actual name
+- Update the hero subtitle and about text
+- Replace LinkedIn and GitHub URLs with your profiles
+- Update meta tags with your information
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Colors
+The color scheme is defined in CSS custom properties at the top of `css/style.css`:
+```css
+:root {
+    --primary-color: #8b1538;    /* Burgundy red */
+    --background: #f5f1eb;       /* Warm beige */
+    --accent-color: #d4845c;     /* Burnt orange */
+    /* ... other colors */
+}
+```
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Profile Image
+Replace `images/profile-placeholder.svg` with your own image, or update the image reference in `index.html`.
 
-## 🚀 Quick start (Gatsby Cloud)
+## 📖 Project Structure
 
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+```
+├── index.html          # Main HTML file
+├── css/
+│   └── style.css      # All styles and responsive design
+├── js/
+│   └── script.js      # Interactive functionality
+├── images/
+│   └── profile-placeholder.svg
+└── README.md          # This file
+```
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+## 🎯 SEO & Performance Features
+
+- **Structured Data**: Schema.org markup for better search results
+- **Open Graph**: Social media sharing optimization
+- **Performance**: Optimized fonts, DNS prefetching, and efficient CSS
+- **Accessibility**: Semantic HTML, proper contrast ratios, reduced motion support
+- **Mobile-first**: Responsive design that works on all screen sizes
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Contributing
+
+Feel free to fork this project and customize it for your own use. If you make improvements that could benefit others, pull requests are welcome!
+
+---
+
+**Note**: Remember to update all placeholder content with your actual information before deploying!
