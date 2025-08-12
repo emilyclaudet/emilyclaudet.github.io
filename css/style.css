@@ -358,6 +358,9 @@ body {
     box-shadow: var(--shadow);
     position: relative;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .project-item:hover {
@@ -424,6 +427,34 @@ body {
 .project-item a:hover {
     color: var(--primary-hover);
     border-bottom: 1px solid var(--primary-hover);
+}
+
+.project-text {
+    flex: 1;
+}
+
+.project-image {
+    flex-shrink: 0;
+}
+
+.project-image-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: var(--background-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 3px solid var(--primary-color);
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Contact Section */
@@ -607,6 +638,15 @@ body {
     .hero-actions {
         justify-content: center;
     }
+    
+    .project-item {
+        gap: 1.5rem;
+    }
+    
+    .project-image-placeholder {
+        width: 100px;
+        height: 100px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -631,6 +671,14 @@ body {
     
     .project-item {
         margin-bottom: 2rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .project-image-placeholder {
+        width: 100px;
+        height: 100px;
     }
     
     .projects-content {
