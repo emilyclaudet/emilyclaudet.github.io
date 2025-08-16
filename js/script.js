@@ -13,68 +13,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Smooth scrolling for navigation links
-    const navLinkElements = document.querySelectorAll('.nav-links a, .hero-actions a[href^="#"]');
+    // Close mobile nav when clicking on navigation links
+    const navLinkElements = document.querySelectorAll('.nav-links a');
     navLinkElements.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            
-            if (href.startsWith('#')) {
-                e.preventDefault();
-                const targetId = href.substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile nav if open
-                    if (navLinks.classList.contains('nav-open')) {
-                        navLinks.classList.remove('nav-open');
-                        navToggle.classList.remove('nav-toggle-open');
-                    }
-                }
+        link.addEventListener('click', function() {
+            // Close mobile nav if open
+            if (navLinks && navLinks.classList.contains('nav-open')) {
+                navLinks.classList.remove('nav-open');
+                navToggle.classList.remove('nav-toggle-open');
             }
         });
     });
     
-    // Active navigation highlighting
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksArray = Array.from(document.querySelectorAll('.nav-links a'));
-    
-    function updateActiveNav() {
-        const scrollPosition = window.scrollY + 100;
+    // Active navigation highlighting for multi-page site
+    function setActiveNavLink() {
+        const currentPage = window.location.pathname;
+        const navLinksArray = Array.from(document.querySelectorAll('.nav-links a'));
         
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+        navLinksArray.forEach(link => {
+            link.classList.remove('active');
+            const linkPath = link.getAttribute('href');
             
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinksArray.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
+            // Handle index page and about/projects/contact pages
+            if ((currentPage.endsWith('index.html') || currentPage === '/' || currentPage === '') && linkPath === 'index.html') {
+                link.classList.add('active');
+            } else if (currentPage.includes(linkPath) && linkPath !== 'index.html') {
+                link.classList.add('active');
             }
         });
     }
     
-    // Scroll event listener for active nav and header background
+    // Set active navigation on page load
+    setActiveNavLink();
+    
+    // Scroll event listener for header background
     const header = document.querySelector('.header');
     let ticking = false;
     
     function onScroll() {
         if (!ticking) {
             requestAnimationFrame(() => {
-                updateActiveNav();
-                
                 // Add/remove header background on scroll
                 if (window.scrollY > 50) {
                     header.classList.add('scrolled');
@@ -187,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.project-item');
+    const animateElements = document.querySelectorAll('.project-entry, .contact-method');
     animateElements.forEach(el => observer.observe(el));
     
     
