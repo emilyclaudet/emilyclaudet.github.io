@@ -187,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.project-item');
+    const animateElements = document.querySelectorAll('.project-card');
     animateElements.forEach(el => observer.observe(el));
     
     
