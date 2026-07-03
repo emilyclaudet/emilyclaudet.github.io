@@ -1,6 +1,7 @@
 /* ==========================================================================
-   Emily Claudet Portfolio — "The Editorial Interface"
-   Design system: Dusk Studio palette, Instrument Serif + Inter typography
+   Emily Claudet Portfolio: "The Editorial Interface"
+   Design system: Dusk Studio palette; Instrument Serif + Inter + IBM Plex Mono
+   Warm editorial base with a technical mono register and graph-paper texture
    ========================================================================== */
 
 /* Performance & rendering */
@@ -34,9 +35,14 @@ html {
     --ember:        #c85a3a;
     --ember-hover:  #e06840;
     --wisteria:     #7b68ae;
+    --moss:         #4a7c6f;
     --paper:        #faf8f5;
     --parchment:    #f0ece4;
     --cloud:        #ffffff;
+
+    --font-serif:   'Instrument Serif', Georgia, serif;
+    --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono:    'IBM Plex Mono', 'SF Mono', Menlo, monospace;
 
     --shadow-sm:  0 1px 3px rgba(26,26,46,0.06);
     --shadow-md:  0 4px 12px rgba(26,26,46,0.08);
@@ -47,8 +53,13 @@ html {
 }
 
 /* ---------- Base ---------- */
+::selection {
+    background: var(--ember);
+    color: var(--cloud);
+}
+
 body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-sans);
     font-size: 17px;
     line-height: 1.7;
     color: var(--ink);
@@ -133,14 +144,16 @@ section {
 }
 
 .nav-links a {
-    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--slate);
     text-decoration: none;
     padding-bottom: 2px;
     border-bottom: 2px solid transparent;
     transition: color var(--transition), border-color var(--transition);
-    letter-spacing: 0.01em;
 }
 
 .nav-links a:hover {
@@ -294,8 +307,9 @@ section {
 
 .highlight-item .label {
     display: block;
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--stone);
@@ -328,7 +342,21 @@ section {
 .page-header {
     text-align: center;
     padding: 8rem 0 3rem;
-    background: var(--paper);
+    background:
+        linear-gradient(rgba(26,26,46,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,26,46,0.035) 1px, transparent 1px),
+        var(--paper);
+    background-size: 32px 32px;
+}
+
+.page-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ember);
+    margin-bottom: 1rem;
 }
 
 .page-header .section-title {
@@ -374,6 +402,72 @@ section {
 
 .about-content p:last-child {
     margin-bottom: 0;
+}
+
+/* ---------- Focus Areas (index.html) ---------- */
+.focus {
+    padding: 4.5rem 0;
+    background: var(--parchment);
+    border-top: 1px solid rgba(26,26,46,0.06);
+}
+
+.focus-title {
+    font-size: 1.9rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.01em;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.focus-card {
+    background: var(--cloud);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    border: 1px solid rgba(26,26,46,0.05);
+    border-top: 3px solid var(--stone);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.focus-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.focus-card-build     { border-top-color: var(--ember); }
+.focus-card-safeguard { border-top-color: var(--wisteria); }
+.focus-card-play      { border-top-color: var(--moss); }
+
+.focus-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--stone);
+    margin-bottom: 0.75rem;
+}
+
+.focus-card-build .focus-kicker     { color: var(--ember); }
+.focus-card-safeguard .focus-kicker { color: var(--wisteria); }
+.focus-card-play .focus-kicker      { color: var(--moss); }
+
+.focus-card h3 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+}
+
+.focus-card p {
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.7;
 }
 
 /* ---------- Contact Section ---------- */
@@ -566,9 +660,9 @@ section {
 }
 
 .project-engine {
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
     color: var(--stone);
-    font-style: italic;
     margin-bottom: 1.25rem;
 }
 
@@ -582,12 +676,14 @@ section {
 .badge {
     display: inline-block;
     padding: 0.25rem 0.7rem;
-    font-size: 0.78rem;
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
     color: var(--wisteria);
     background: rgba(123,104,174,0.1);
-    border-radius: 100px;
-    letter-spacing: 0.02em;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
 }
 
 .project-link {
@@ -642,7 +738,7 @@ section {
     top: 0.5rem;
     width: 0.8rem;
     height: 0.8rem;
-    border-radius: 50%;
+    border-radius: 2px;
     background: var(--ember);
     border: 3px solid var(--paper);
     z-index: 1;
@@ -677,7 +773,8 @@ section {
 }
 
 .timeline-date {
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
     color: var(--stone);
     white-space: nowrap;
 }
@@ -710,12 +807,15 @@ section {
 }
 
 .timeline-tag {
-    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
     padding: 0.2rem 0.6rem;
     background: var(--parchment);
     color: var(--stone);
-    border-radius: 100px;
+    border-radius: 4px;
 }
 
 .timeline-footer {
@@ -831,6 +931,11 @@ section {
     .about-photo-img {
         width: 140px;
         height: 140px;
+    }
+
+    /* Focus */
+    .focus-grid {
+        grid-template-columns: 1fr;
     }
 
     /* Contact */

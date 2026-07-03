@@ -1,4 +1,4 @@
-// Emily Claudet Portfolio — Multi-page navigation & interactions
+// Emily Claudet Portfolio: Multi-page navigation & interactions
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (currentPage === '' && href === 'index.html') {
             link.classList.add('active');
         } else if (currentPage === 'index.html' && href === '#about') {
-            // "About" link on index page — highlight based on section
+            // "About" link on index page: highlight based on section
         }
     });
 
